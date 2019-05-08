@@ -1,15 +1,12 @@
-import javafx.application.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.*;
-import javafx.stage.*;
-import javafx.scene.layout.*;
-import javafx.scene.control.*;
-import javafx.geometry.*;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class ColorFinder extends Application {
 
-	
+
     public static void main(String[] args) {
 
         // Start the JavaFX application by calling launch().  
@@ -25,7 +22,7 @@ public class ColorFinder extends Application {
         // Create the Gmajor HBox. 
         HBox rootNode = new HBox(10);
         rootNode.setPadding(new Insets(10, 10, 10, 10)); // Gaps at the outside borders
-        
+
         ColorFinderCanvas cfCanvas = new ColorFinderCanvas();
         ColorSelector cfSelector = new ColorSelector(cfCanvas);
 

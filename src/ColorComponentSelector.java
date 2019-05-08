@@ -1,28 +1,27 @@
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
-import javafx.beans.value.*;
 
 class ColorComponentSelector extends HBox {
-	
-	private static final int NAME_WIDTH = 60;
-	private static final int VALUE_WIDTH = 40;
-	private static final int SLIDER_WIDTH = 300;
 
-	private Label lblCurrValue;
-	private int currValue = 0;
+    private static final int NAME_WIDTH = 60;
+    private static final int VALUE_WIDTH = 40;
+    private static final int SLIDER_WIDTH = 300;
 
-	ColorComponentSelector(ColorSelector selector, String name) {
-		super(10);
+    private Label lblCurrValue;
+    private int currValue = 0;
 
-		Label lblName = new Label(name);
-		lblName.setMinWidth(NAME_WIDTH);
+    ColorComponentSelector(ColorSelector selector, String name) {
+        super(10);
 
-		lblCurrValue = new Label("0");
-		lblCurrValue.setMinWidth(VALUE_WIDTH);
+        Label lblName = new Label(name);
+        lblName.setMinWidth(NAME_WIDTH);
 
-		Slider sldrComponent = new Slider(0.0, 255.0, 0.0);
-		sldrComponent.setMinWidth(SLIDER_WIDTH);
+        lblCurrValue = new Label("0");
+        lblCurrValue.setMinWidth(VALUE_WIDTH);
+
+        Slider sldrComponent = new Slider(0.0, 255.0, 0.0);
+        sldrComponent.setMinWidth(SLIDER_WIDTH);
 
         // Configure the component slider. 
         sldrComponent.setShowTickMarks(true);
@@ -34,16 +33,16 @@ class ColorComponentSelector extends HBox {
 
         // Handle change events on the slider's value. 
         sldrComponent.valueProperty().addListener((changed, oldVal, newVal) -> {
-			currValue = newVal.intValue();
-			lblCurrValue.setText("" + currValue);
-			selector.repaint();
-		});
+            currValue = newVal.intValue();
+            lblCurrValue.setText("" + currValue);
+            selector.repaint();
+        });
 
         getChildren().addAll(lblName, lblCurrValue, sldrComponent);
-	}
-	
-	int getValue() {
-		return currValue;
-	}
+    }
+
+    int getValue() {
+        return currValue;
+    }
 
 }
